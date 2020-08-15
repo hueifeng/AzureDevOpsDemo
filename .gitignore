@@ -3,3 +3,12 @@
 ################################################################################
 
 /ClassLibrary1/bin/Debug/netstandard2.0
+/ClassLibrary1/obj
+/XUnitTestProject1/.vs/XUnitTestProject1/v16
+/XUnitTestProject1/TestResults
+/XUnitTestProject1/XUnitTestProject1/bin/Debug/netcoreapp3.1
+/XUnitTestProject1/XUnitTestProject1/obj
+/.vs/XUnitTestProject1/v16
+/XUnitTestProject1/.vs/XUnitTestProject1/DesignTimeBuild
+/XUnitTestProject1/bin/Debug/netcoreapp3.1
+/XUnitTestProject1/obj
