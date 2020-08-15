@@ -15,22 +15,26 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
+- task: CmdLine@2
+  displayName: Run Tests and ReportGenerator
   inputs:
-    command: 'restore'
-    feedsToUse: 'select'
-- task: DotNetCoreCLI@2
+    script: |
+      dotnet test --logger:trx --collect:"XPlat Code Coverage" --configuration $(BuildConfiguration)
+       ls TestResults
+      dotnet tool install -g dotnet-reportgenerator-globaltool
+      reportgenerator "-reports:**\TestResults\*\coverage.cobertura.xml;**\TestResults\cobertura-coverage.xml" "-targetdir:$(System.DefaultWorkingDirectory)\coveragereport" "-reporttypes:HtmlInline_AzurePipelines_Dark;Cobertura;Badges";-Dommel*"
+  continueOnError: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
   inputs:
-    command: 'build'
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
-  inputs:
-    command: 'test'
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
-    publishTestResults: true
+    testResultsFormat: 'VSTest' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    testResultsFiles: '**/TestResults/*.trx' 
+    testRunTitle: API.Tests
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)\coveragereport\Cobertura.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)\coveragereport'
