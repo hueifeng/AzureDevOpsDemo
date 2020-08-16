@@ -15,9 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-
-
-
 - task: CmdLine@2
   displayName: Run Tests and ReportGenerator
   inputs:
@@ -25,7 +22,7 @@ steps:
       dotnet test --logger:trx --collect:"XPlat Code Coverage" --configuration $(BuildConfiguration)
        ls TestResults
       dotnet tool install -g dotnet-reportgenerator-globaltool
-      reportgenerator "-reports:**\TestResults\*\coverage.cobertura.xml;**\TestResults\cobertura-coverage.xml" "-targetdir:$(System.DefaultWorkingDirectory)\coveragereport" "-reporttypes:HtmlInline_AzurePipelines_Dark;Cobertura;Badges";-Dommel*"
+            reportgenerator "-reports:**\TestResults\*\coverage.cobertura.xml;**\TestResults\cobertura-coverage.xml" "-targetdir:$(System.DefaultWorkingDirectory)\coveragereport" "-reporttypes:HtmlInline_AzurePipelines_Dark;Cobertura;Badges" "-assemblyfilters:-Dapper*;-Dommel*"
   continueOnError: true
 - task: PublishCodeCoverageResults@1  
   displayName: 'Publish code coverage'  
