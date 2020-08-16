@@ -7,7 +7,7 @@ trigger:
 - demo2
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-2019'
 
 variables:
   solution: '**/*.sln'
@@ -35,9 +35,10 @@ steps:
     command: custom
     custom: tool
     arguments: install dotnet-reportgenerator-globaltool -g
-- task: CmdLine@2
-  inputs:
-    script: 'echo "##vso[task.prependpath]$HOME/.dotnet/tools"'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'echo "##vso[task.prependpath]$HOME/.dotnet/tools"'
 
 - script: 'reportgenerator -reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"Cobertura"'  
   displayName: 'Create reports'  
