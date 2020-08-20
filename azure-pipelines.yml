@@ -41,7 +41,5 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'eab0dab2-c5d4-4d6c-bf43-37e87410b0a9'
-    allowPackageConflicts: true
-
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'hueifeng_nuget'
