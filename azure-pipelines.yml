@@ -37,9 +37,11 @@ steps:
 #     versioningScheme: 'off'
 #     allowPackageConflicts: true
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'hueifeng_nuget'
+# - task: NuGetCommand@2
+#   inputs:
+#     command: 'push'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+#     nuGetFeedType: 'external'
+#     publishFeedCredentials: 'hueifeng_nuget'
+
+- script: dotnet nuget push $(Build.ArtifactStagingDirectory)/**/*.nupkg -k $(APIKey) -s https://api.nuget.org/v3/index.json
