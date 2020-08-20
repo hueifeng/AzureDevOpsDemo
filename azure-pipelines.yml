@@ -28,12 +28,20 @@ steps:
     nobuild: true
     versioningScheme: 'off'
 
+# - task: NuGetCommand@2
+#   inputs:
+#     command: 'push'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+#     nuGetFeedType: 'external'
+#     publishFeedCredentials: 'hueifeng_nuget'
+#     versioningScheme: 'off'
+#     allowPackageConflicts: true
+
 - task: NuGetCommand@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'hueifeng_nuget'
-    versioningScheme: 'off'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'eab0dab2-c5d4-4d6c-bf43-37e87410b0a9'
     allowPackageConflicts: true
-  continueOnError: true
+
