@@ -28,20 +28,9 @@ steps:
     nobuild: true
     versioningScheme: 'off'
 
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-#     nuGetFeedType: 'external'
-#     publishFeedCredentials: 'hueifeng_nuget'
-#     versioningScheme: 'off'
-#     allowPackageConflicts: true
+- task: DotNetCoreCLI@2
+  displayName: "dotnet push"
+  inputs:
+    command: 'custom'
+    custom: 'dotnet nuget push $(Build.ArtifactStagingDirectory)/**/*.nupkg -k $(APIKey) -s https://api.nuget.org/v3/index.json  --skip-duplicate'
 
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-#     nuGetFeedType: 'external'
-#     publishFeedCredentials: 'hueifeng_nuget'
-
-- script: dotnet nuget push $(Build.ArtifactStagingDirectory)/**/*.nupkg -k $(APIKey) -s https://api.nuget.org/v3/index.json  --skip-duplicate
