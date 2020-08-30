@@ -38,6 +38,7 @@ steps:
     repository: '$(repository)'
     command: 'buildAndPush'
     Dockerfile: 'WebApplication1/Dockerfile'
+    buildContext: .
 
 
 
