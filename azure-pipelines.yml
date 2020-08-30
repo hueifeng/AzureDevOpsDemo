@@ -31,14 +31,14 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-
+    
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHub'
     repository: '$(repository)'
     command: 'buildAndPush'
     Dockerfile: 'WebApplication1/Dockerfile'
-    buildContext: .
-
+    buildContext: '.'
+    tags: 'latest'
 
 
