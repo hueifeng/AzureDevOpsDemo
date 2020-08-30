@@ -37,7 +37,7 @@ steps:
     containerRegistry: 'DockerHub'
     repository: '$(repository)'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: 'WebApplication1/Dockerfile'
 
 
 
