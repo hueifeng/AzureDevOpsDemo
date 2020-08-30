@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\hueif\\.nuget\\packages\\",
-        "outputPath": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "D:\\Codes\\HueiFeng\\AzureDevOpsDemo\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hueif\\AppData\\Roaming\\NuGet\\NuGet.Config",
