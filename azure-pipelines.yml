@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- demo03
+- demo04
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -13,6 +13,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.x'
+    
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
